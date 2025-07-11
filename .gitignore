@@ -28,3 +28,5 @@ dist/
 
 # Python profiler
 .prof
+*.pyc
+__pycache__/
