@@ -50,10 +50,55 @@ To set up the project locally, follow these steps:
 
 ## Usage
 
-After installation, you can run CacheBoom from the command line. For example:
+After installation, you can run CacheBoom from the command line to scan for Web Cache Deception (WCD) and Web Cache Poisoning (WCP) vulnerabilities.
+
+### Basic Usage
+
+To scan a single URL for cache poisoning:
 
 ```sh
 python3 cacheboom.py --url https://target.com --mode cp
+```
+
+To scan for cache deception:
+
+```sh
+python cacheboom.py --url https://target.com --mode cd
+```
+
+### Advanced Options
+
+- **Scan multiple URLs from a file:**
+  ```sh
+  python cacheboom.py --list urls.txt --mode cp
+  ```
+  `urls.txt` should contain one URL per line.
+
+- **Use a raw HTTP request file:**
+  ```sh
+  python cacheboom.py --raw_request raw_request.txt --mode cp
+  ```
+
+- **Add cookies to your requests:**
+  ```sh
+  python cacheboom.py --url https://target.com --mode cp --cookie "name=value; name2=value2"
+  ```
+
+- **Set the number of threads (default is 10):**
+  ```sh
+  python cacheboom.py --url https://target.com --mode cp --thread 20
+  ```
+
+- **Silent mode (show only results):**
+  ```sh
+  python cacheboom.py --url https://target.com --mode cp --silent
+  ```
+
+### Help
+
+To see all available options, run:
+```sh
+python cacheboom.py --help
 ```
 
 Replace `https://target.com` with the target URL you want to test.
