@@ -13,4 +13,4 @@ def url_handler(url, cookie, mode, thread, silent):
         
         scan(url, protocol, headers_dict, body, method, cookie, mode, thread, silent)
     else:
-        print("[-] The URL is not valid.")
+        print(f"[~] [The URL is not valid] | URL: {url}")

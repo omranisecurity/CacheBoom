@@ -1,11 +1,14 @@
-import requests
+import requests, random, string, time
 from utils.readfile import readfile
 from colorama import Fore, Style
-import time
 
 base_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0'}
 custom_headers = readfile()
 cacheboom_value = "cacheboom.com"
+
+def random_string(length=4):
+    chars = string.ascii_letters + string.digits
+    return(''.join(random.choice(chars) for _ in range(length)))
 
 def scan_cp(url, protocol, headers_dict, body, method, cookie, mode, thread, silent):
     max_requests_per_sec = thread if thread is not None else 10
@@ -26,18 +29,20 @@ def scan_cp(url, protocol, headers_dict, body, method, cookie, mode, thread, sil
         if cookie:
             test_headers['Cookie'] = cookie
 
+        payload = "?" + random_string() + "=123"
+
         try:
             response = requests.request(
                 method=method,
-                url=url,
+                url=url+payload,
                 headers=test_headers,
                 data=body
             )
 
-            if any(cacheboom_value in str(value) for value in response.headers.values()) or cacheboom_value in response.text:
-                print(Fore.GREEN + f"[+] Cache Poisoning Detected via header: {header_name}" + Style.RESET_ALL)
+            if (any("miss" in str(value) for value in response.headers.values()) and cacheboom_value in response.text) or cacheboom_value in response.text:
+                print(Fore.GREEN + f"[+] [VULNERABLE] | URL: {url+payload} | Header: {header_name} | Payload: {cacheboom_value}" + Style.RESET_ALL)
             else:
-                print(f"[-] No Cache Poisoning via header: {header_name}")
+                print(Fore.RED + f"[-] [Not vulnerable] URL: {url+payload} | Header: {header_name} | Payload: {cacheboom_value}" + Style.RESET_ALL)
 
         except requests.RequestException as e:
             print(Fore.RED + f"[!] Error with header {header_name}: {e}" + Style.RESET_ALL)
