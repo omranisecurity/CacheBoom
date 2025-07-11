@@ -2,9 +2,9 @@ from modules.poisoning.cp import scan_cp
 from modules.deception.cd import scan_cd
 #from modules.poisoning.cp_dos import scan_cp_dos
 
-def scan(url, protocol, headers_dict, body, method, cookie, mode, thread, silent):
+def scan(url, protocol, headers_dict, body, method, cookie, mode, thread, silent, output):
         if mode == "cp":
-            scan_cp(url, protocol, headers_dict, body, method, cookie, mode, thread, silent)
+            scan_cp(url, protocol, headers_dict, body, method, cookie, mode, thread, silent, output)
 
         elif mode == "cd":
              scan_cd(url, protocol, headers_dict, body, method, cookie, mode, thread, silent)

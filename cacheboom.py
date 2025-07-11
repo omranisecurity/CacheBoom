@@ -13,6 +13,7 @@ def main():
     parser.add_argument('-m', '--mode', choices=['cd', 'cp'], required=True, help="choose scan mode")
     parser.add_argument('-t', '--thread', type=int, default=10, help="number of threads to use (default: 10)")
     parser.add_argument('-s', '--silent', action='store_true', default=None, help="show only result in output")
+    parser.add_argument('-o', '--output', type=str, default=None, help="output file to save results")
     args = parser.parse_args()
     
     if not args.silent:
@@ -26,7 +27,8 @@ def main():
                 cookie=args.cookie,
                 mode=args.mode,
                 thread=args.thread,
-                silent=args.silent
+                silent=args.silent,
+                output=args.output
             )
         
     except KeyboardInterrupt:

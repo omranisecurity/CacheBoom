@@ -10,7 +10,7 @@ def random_string(length=4):
     chars = string.ascii_letters + string.digits
     return(''.join(random.choice(chars) for _ in range(length)))
 
-def scan_cp(url, protocol, headers_dict, body, method, cookie, mode, thread, silent):
+def scan_cp(url, protocol, headers_dict, body, method, cookie, mode, thread, silent, output):
     max_requests_per_sec = thread if thread is not None else 10
     delay = 1.0 / max_requests_per_sec if max_requests_per_sec > 0 else 0
 
@@ -39,10 +39,16 @@ def scan_cp(url, protocol, headers_dict, body, method, cookie, mode, thread, sil
                 data=body
             )
 
+            result = ""
             if (any("miss" in str(value) for value in response.headers.values()) and cacheboom_value in response.text) or cacheboom_value in response.text:
-                print(Fore.GREEN + f"[+] [VULNERABLE] | URL: {url+payload} | Header: {header_name} | Payload: {cacheboom_value}" + Style.RESET_ALL)
+                result = f"[+] [VULNERABLE] | URL: {url+payload} | Header: {header_name} | Payload: {cacheboom_value}"
+                print(Fore.GREEN + result + Style.RESET_ALL)
             else:
-                print(Fore.RED + f"[-] [Not vulnerable] URL: {url+payload} | Header: {header_name} | Payload: {cacheboom_value}" + Style.RESET_ALL)
+                result = f"[-] [Not vulnerable] URL: {url+payload} | Header: {header_name} | Payload: {cacheboom_value}"
+                print(Fore.RED + result + Style.RESET_ALL)
+            if output:
+                with open(output, "a") as f:
+                    f.write(result + "\n")
 
         except requests.RequestException as e:
             print(Fore.RED + f"[!] Error with header {header_name}: {e}" + Style.RESET_ALL)
