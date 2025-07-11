@@ -6,7 +6,7 @@ CacheBoom!
 
 <p align="center">
 <a href="https://github.com/omranisecurity/cacheboom/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
-<a href="https://github.com/omranisecurity/cacheBoom/releases"><img src="https://img.shields.io/badge/release-v0.8.0-blue"></a>
+<a href="https://github.com/omranisecurity/cacheBoom/releases"><img src="https://img.shields.io/badge/release-v0.8.1-blue"></a>
 <a href="https://twitter.com/omranisecurity"><img src="https://img.shields.io/twitter/follow/omranisecurity?logo=twitter"></a>
 </p>
 
