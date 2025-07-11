@@ -53,7 +53,7 @@ To set up the project locally, follow these steps:
 After installation, you can run CacheBoom from the command line. For example:
 
 ```sh
-python cacheboom.py --url https://target.com --mode cp
+python3 cacheboom.py --url https://target.com --mode cp
 ```
 
 Replace `https://target.com` with the target URL you want to test.
@@ -61,10 +61,15 @@ Replace `https://target.com` with the target URL you want to test.
 _For more examples, please refer to the [Documentation](https://github.com/omranisecurity/cacheboom/wiki)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Roadmap
 
-- [x] Added a simple test case for cache poisoning
-- [ ] Advanced test cases for cache poisoning will be collected from various research papers and added soon
-- [ ] Web Cache Deception vulnerability detection will be added soon
+- [x] Basic cache poisoning test implemented
+- [x] Web Cache Deception detection coming soon
+- [ ] Implement `--output` flag for saving results
+- [ ] Add advanced cache poisoning tests from research literature
+
 
 ## Contributing
+Contributions are welcome!
+If you have ideas, bug reports, or feature requests, please open an issue in the [GitHub Issues](https://github.com/omranisecurity/cacheboom/issues) section before submitting a pull request. This helps us discuss and track changes
