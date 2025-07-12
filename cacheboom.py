@@ -5,7 +5,7 @@ from input_handlers.main_handler import loader
 from utils.banner import show_banner
 
 def main():
-    parser = argparse.ArgumentParser(prog='CacheBoom!', description='A tool for detecting Web Cache Deception and Web Cache Poisoning vulnerabilities.', epilog='version: 0.8.1')
+    parser = argparse.ArgumentParser(prog='CacheBoom!', description='A tool for detecting Web Cache Deception and Web Cache Poisoning vulnerabilities.', epilog='version: 0.8.2')
     parser.add_argument('-u', '--url', type=str, help="example: https://www.google.com")
     parser.add_argument('-r', '--raw_request', type=str, help="example: ~/raw_request.txt")
     parser.add_argument('-l', '--list', type=str, help="example: ~/urls.txt")
