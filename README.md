@@ -46,8 +46,6 @@ To set up the project locally, follow these steps:
      pip install -r requirements.txt
      ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Usage
 
 After installation, you can run CacheBoom from the command line to scan for Web Cache Deception (WCD) and Web Cache Poisoning (WCP) vulnerabilities.
@@ -104,8 +102,6 @@ python cacheboom.py --help
 Replace `https://target.com` with the target URL you want to test.
 
 _For more examples, please refer to the [Documentation](https://github.com/omranisecurity/cacheboom/wiki)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Roadmap
 
