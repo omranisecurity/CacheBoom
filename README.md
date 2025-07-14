@@ -12,9 +12,10 @@ CacheBoom!
 
 <p align="center">
     <a href="#features">Features</a> •
+    <a href="#Quick Start">Quick Start</a> •
     <a href="#installation">Installation</a> •
     <a href="#usage">Usage</a> •
-    <a href="#examples">Examples</a>
+    <a href="#Contributing">Contributing</a>
 </p>
 
 ---
