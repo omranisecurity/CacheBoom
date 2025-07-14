@@ -1,7 +1,7 @@
 import os.path
 from core.scanner import scan
 
-def raw_handler(raw_request, cookie, mode, thread, silent):
+def raw_handler(raw_request, cookie, mode, thread, silent, output):
     
     if os.path.isfile(raw_request):
         with open(raw_request, 'r', encoding='utf-8') as f:
@@ -26,8 +26,7 @@ def raw_handler(raw_request, cookie, mode, thread, silent):
         host = headers_dict.get('Host')
         url = f"https://{host}{path}" #By default, requests are sent using the HTTPS protocol.
         
-        #print(url, protocol, headers_dict, body, method, cookie, mode, thread, silent)
-        scan(url, protocol, headers_dict, body, method, cookie, mode, thread, silent)
+        scan(url, protocol, headers_dict, body, method, cookie, mode, thread, silent, output)
     
     else:
         print("File doesn't exist.")
